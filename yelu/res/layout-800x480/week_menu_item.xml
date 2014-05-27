@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:padding="8dp" >
+
+    <TextView
+        android:id="@+id/id_week_item_week_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="周一"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/content_text_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/id_week_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/id_week_item_week_day"
+        android:paddingLeft="6dp"
+        android:text="2014年11月5日"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/content_text_color"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/id_week_menu_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_week_item_week_day"
+        android:layout_marginTop="8dp"
+        android:text="干炸丸子、京酱肉丝 香炸肉排、酱爆肉条 松子扒肉、五香腰片 炸卷肉、糖醋里脊 凉拌三丝、鸭梨腰花"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@color/content_text_color"
+        android:textStyle="normal" />
+
+</RelativeLayout>
