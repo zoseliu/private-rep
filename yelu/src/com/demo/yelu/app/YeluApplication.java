@@ -15,7 +15,7 @@ import android.util.Log;
 public class YeluApplication extends Application {
 
 	private static YeluApplication instance;
-	
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -26,7 +26,7 @@ public class YeluApplication extends Application {
 		}
 		instance = this;
 	}
-	
+
 	public static YeluApplication getInstance() {
 		return instance;
 	}
@@ -39,14 +39,22 @@ public class YeluApplication extends Application {
 				Constants.TIME_FORMET_STR_SS)))
 			isLogon = false;
 		if (isLogon) {
+			DataProvider.isLogon = isLogon;
 			DataProvider.user.setUsername(db.getString("username", null));
 			DataProvider.user.setTag(db.getString("tag", null));
+			Editor editor = getSharedPreferences().edit();
+			editor.putString("logonTime",
+					TimerUtils.getTime(Constants.TIME_FORMET_STR_SS));
+			editor.commit();
+		} else {
+			DataProvider.isLogon = isLogon;
+			Editor editor = getSharedPreferences().edit();
+			editor.putBoolean("isLogon", isLogon);
+			editor.putString("logonTime", "");
+			editor.putString("username", "");
+			editor.putString("tag", "");
+			editor.commit();
 		}
-		DataProvider.isLogon = isLogon;
-		Editor editor = getSharedPreferences().edit();
-		editor.putBoolean("isLogon", isLogon);
-		editor.putString("logonTime", null);
-		editor.commit();
 	}
 
 	public SharedPreferences getSharedPreferences() {
